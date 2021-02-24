@@ -3,6 +3,7 @@ export default {
   rootPath: '', // 发布到服务器的根目录，需以/开头但不能有尾/，如果只有/，请填写空字符串
   port: 8080, // 本地开发服务器的启动端口
   domain: 'dolphinscheduler.incubator.apache.org', // 站点部署域名，无需协议和path等
+  copyToDist: ['img', 'file', '.asf.yaml', 'sitemap.xml', '.nojekyll'], // 当build发布时，需要额外复制到dist目录的资源，默认有：index.html, 404.html, en-us, zh-cn, build
   defaultSearch: 'google', // 默认搜索引擎，baidu或者google
   defaultLanguage: 'en-us',
   'en-us': {
@@ -15,60 +16,63 @@ export default {
       {
         key: 'docs',
         text: 'DOCS',
-        link: '/en-us/docs/1.3.3/user_doc/quick-start.html',
+        link: '/en-us/docs/1.3.5/user_doc/quick-start.html',
         children: [
           {
             key: 'docs1',
-            text: '1.3.3(Recommend)',
-            link: '/en-us/docs/1.3.3/user_doc/quick-start.html',
+            text: '1.3.5(Recommend)',
+            link: '/en-us/docs/1.3.5/user_doc/quick-start.html',
           },
           {
             key: 'docs2',
+            text: '1.3.4',
+            link: '/en-us/docs/1.3.4/user_doc/quick-start.html',
+          },
+          {
+            key: 'docs3',
+            text: '1.3.3',
+            link: '/en-us/docs/1.3.3/user_doc/quick-start.html',
+          },
+          {
+            key: 'docs4',
             text: '1.3.2',
             link: '/en-us/docs/1.3.2/user_doc/quick-start.html',
           },
           {
-            key: 'docs3',
+            key: 'docs5',
             text: '1.3.1',
             link: '/en-us/docs/1.3.1/user_doc/quick-start.html',
           },
           {
-            key: 'docs4',
+            key: 'docs6',
             text: '1.2.1',
             link: '/en-us/docs/1.2.1/user_doc/quick-start.html',
           },
           {
-            key: 'docs5',
+            key: 'docs7',
             text: '1.2.0',
             link: '/en-us/docs/1.2.0/user_doc/quick-start.html',
           },
           {
-              key: 'docs6',
-              text: '1.1.0(Not Apache Release)',
-              link: 'https://analysys.github.io/easyscheduler_docs_cn/',
-          }
-        ]
+            key: 'docs8',
+            text: '1.1.0(Not Apache Release)',
+            link: 'https://analysys.github.io/easyscheduler_docs_cn/',
+          },
+        ],
       },
       {
         key: 'download',
         text: 'DOWNLOAD',
-        link: '/en-us/docs/release/download.html',
+        link: '/en-us/download/download.html',
       },
-      {
-        key: 'demo',
-        text: 'Online Demo',
-        target: '_blank',
-        link: 'http://106.75.43.194:8888'
-      },
-      {
-        key: 'blog',
+      { key: 'blog',
         text: 'BLOG',
         link: '/en-us/blog/index.html',
       },
       {
         key: 'development',
         text: 'DEVELOPMENT',
-        link: '/en-us/docs/development/subscribe.html',
+        link: '/en-us/development/development-environment-setup.html',
       },
       {
         key: 'community',
@@ -116,32 +120,28 @@ export default {
             text: 'Thanks',
             target: '_blank',
             link: 'https://www.apache.org/foundation/thanks.html',
-          }
-        ]
+          },
+        ],
       },
     ],
     disclaimer: {
       title: 'Disclaimer',
-      content: 'Apache DolphinScheduler (incubating) is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by Incubator. \n' +
-          'Incubation is required of all newly accepted projects until a further review indicates \n' +
-          'that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. \n' +
-          'While incubation status is not necessarily a reflection of the completeness or stability of the code, \n' +
-          'it does indicate that the project has yet to be fully endorsed by the ASF.',
+      content: 'Apache DolphinScheduler is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.',
     },
     documentation: {
       title: 'Documentation',
       list: [
         {
           text: 'Overview',
-          link: '/en-us/docs/development/architecture-design.html',
+          link: '/en-us/development/architecture-design.html',
         },
         {
           text: 'Quick start',
-          link: '/en-us/docs/1.3.3/user_doc/quick-start.html',
+          link: '/en-us/docs/1.3.4/user_doc/quick-start.html',
         },
         {
           text: 'Developer guide',
-          link: '/en-us/docs/development/backend-development.html',
+          link: '/en-us/development/backend-development.html',
         },
       ],
     },
@@ -170,7 +170,7 @@ export default {
         },
       ],
     },
-    copyright: 'Copyright © 2018-2020 The Apache Software Foundation. Apache DolphinScheduler, DolphinScheduler, and its feather logo are trademarks of The Apache Software Foundation.',
+    copyright: 'Copyright © 2019-2021 The Apache Software Foundation. Apache DolphinScheduler, DolphinScheduler, and its feather logo are trademarks of The Apache Software Foundation.',
   },
   'zh-cn': {
     pageMenu: [
@@ -182,50 +182,54 @@ export default {
       {
         key: 'docs',
         text: '文档',
-        link: '/zh-cn/docs/1.3.3/user_doc/quick-start.html',
+        link: '/zh-cn/docs/1.3.5/user_doc/quick-start.html',
         children: [
           {
             key: 'docs1',
-            text: '1.3.3(推荐)',
-            link: '/zh-cn/docs/1.3.3/user_doc/quick-start.html',
+            text: '1.3.5(推荐)',
+            link: '/zh-cn/docs/1.3.5/user_doc/quick-start.html',
           },
           {
             key: 'docs2',
+            text: '1.3.4',
+            link: '/zh-cn/docs/1.3.4/user_doc/quick-start.html',
+          },
+          {
+            key: 'docs3',
+            text: '1.3.3',
+            link: '/zh-cn/docs/1.3.3/user_doc/quick-start.html',
+          },
+          {
+            key: 'docs4',
             text: '1.3.2',
             link: '/zh-cn/docs/1.3.2/user_doc/quick-start.html',
           },
           {
-            key: 'docs3',
+            key: 'docs5',
             text: '1.3.1',
             link: '/zh-cn/docs/1.3.1/user_doc/quick-start.html',
           },
           {
-            key: 'docs4',
+            key: 'docs6',
             text: '1.2.1',
             link: '/zh-cn/docs/1.2.1/user_doc/quick-start.html',
           },
           {
-            key: 'docs5',
+            key: 'docs7',
             text: '1.2.0',
             link: '/zh-cn/docs/1.2.0/user_doc/quick-start.html',
           },
           {
-              key: 'docs6',
-              text: '1.1.0(Not Apache Release)',
-              link: 'https://analysys.github.io/easyscheduler_docs_cn/',
-          }
-        ]
+            key: 'docs8',
+            text: '1.1.0(Not Apache Release)',
+            link: 'https://analysys.github.io/easyscheduler_docs_cn/',
+          },
+        ],
       },
       {
         key: 'download',
         text: '下载',
-        link: '/zh-cn/docs/release/download.html',
-      },
-      {
-        key: 'demo',
-        text: '线上demo',
-        target: '_blank',
-        link: 'http://106.75.43.194:8888'
+        link: '/zh-cn/download/download.html',
       },
       {
         key: 'blog',
@@ -235,24 +239,12 @@ export default {
       {
         key: 'development',
         text: '开发者',
-        link: '/zh-cn/docs/development/subscribe.html',
+        link: '/zh-cn/development/development-environment-setup.html',
       },
       {
         key: 'community',
         text: '社区',
         link: '/zh-cn/community/index.html',
-        children: [
-          {
-            key: 'community',
-            text: '社区动态',
-            link: '/zh-cn/community/index.html',
-          },
-          {
-            key: 'example',
-            text: '示例页面',
-            link: '/zh-cn/docs/community/example.html',
-          }
-        ]
       },
       {
         key: 'ASF',
@@ -295,32 +287,28 @@ export default {
             text: 'Thanks',
             target: '_blank',
             link: 'https://www.apache.org/foundation/thanks.html',
-          }
-        ]
+          },
+        ],
       },
     ],
     disclaimer: {
       title: 'Disclaimer',
-      content: 'Apache DolphinScheduler (incubating) is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by Incubator. \n' +
-          'Incubation is required of all newly accepted projects until a further review indicates \n' +
-          'that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. \n' +
-          'While incubation status is not necessarily a reflection of the completeness or stability of the code, \n' +
-          'it does indicate that the project has yet to be fully endorsed by the ASF.',
+      content: 'Apache DolphinScheduler is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.',
     },
     documentation: {
       title: '文档',
       list: [
         {
           text: '概览',
-          link: '/zh-cn/docs/development/architecture-design.html',
+          link: '/zh-cn/development/architecture-design.html',
         },
         {
           text: '快速开始',
-          link: '/zh-cn/docs/1.3.3/user_doc/quick-start.html',
+          link: '/zh-cn/docs/1.3.4/user_doc/quick-start.html',
         },
         {
           text: '开发者指南',
-          link: '/zh-cn/docs/development/backend-development.html',
+          link: '/zh-cn/development/backend-development.html',
         },
       ],
     },
@@ -349,6 +337,6 @@ export default {
         },
       ],
     },
-    copyright: 'Copyright © 2018-2020 The Apache Software Foundation. Apache DolphinScheduler, DolphinScheduler, and its feather logo are trademarks of The Apache Software Foundation.',
+    copyright: 'Copyright © 2019-2021 The Apache Software Foundation. Apache DolphinScheduler, DolphinScheduler, and its feather logo are trademarks of The Apache Software Foundation.',
   },
 };

@@ -2,7 +2,7 @@
 
 # 1、基础软件安装(必装项请自行安装)
 
- * PostgreSQL (8.2.15+) or MySQL (5.7系列)  :  两者任选其一即可
+ * PostgreSQL (8.2.15+) or MySQL (5.7系列)  :  两者任选其一即可，<font color="#dd0000">如果使用MySQL，强烈建议，MySQL的版本为5.7或更高</font>
  * [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (1.8+) :  必装，请安装好后在/etc/profile下配置 JAVA_HOME 及 PATH 变量
  * ZooKeeper (3.4.6+) ：必装 
  * Hadoop (2.6+) or MinIO ：选装， 如果需要用到资源上传功能，针对单机可以选择本地文件目录作为上传文件夹(此操作不需要部署Hadoop)；当然也可以选择上传到Hadoop or MinIO集群上
@@ -13,16 +13,16 @@
 
 # 2、下载二进制tar.gz包
 
-- 请下载最新版本的后端安装包至服务器部署目录,比如创建 /opt/dolphinscheduler 做为安装部署目录，下载地址： [下载](https://dolphinscheduler.apache.org/zh-cn/docs/release/download.html)，下载后上传tar包到该目录中，并进行解压
+- 请下载最新版本的后端安装包至服务器部署目录,比如创建 /opt/dolphinscheduler 做为安装部署目录，下载地址： [下载](/zh-cn/download/download.html)，下载后上传tar包到该目录中，并进行解压
 
 ```shell
 # 创建部署目录,部署目录请不要创建在/root、/home等高权限目录 
 mkdir -p /opt/dolphinscheduler;
 cd /opt/dolphinscheduler;
 # 解压缩
-tar -zxvf apache-dolphinscheduler-incubating-1.3.1-dolphinscheduler-bin.tar.gz -C /opt/dolphinscheduler;
+tar -zxvf apache-dolphinscheduler-incubating-1.3.3-dolphinscheduler-bin.tar.gz -C /opt/dolphinscheduler;
  
-mv apache-dolphinscheduler-incubating-1.3.1-dolphinscheduler-bin  dolphinscheduler-bin
+mv apache-dolphinscheduler-incubating-1.3.3-dolphinscheduler-bin  dolphinscheduler-bin
 ```
 
 # 3、创建部署用户并赋予目录操作权限
